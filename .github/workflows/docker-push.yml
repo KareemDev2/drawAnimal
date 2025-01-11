@@ -12,5 +12,6 @@ jobs:
       - run: |
           docker build -t kareemdev2/drawanimal:1.0.1 .
           docker login -u kareemdev2 -p $DOCKERHUB_TOKEN 
+          docker push kareemdev2/drawanimal:1.0.1
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_KAREEM_TOKEN}}
