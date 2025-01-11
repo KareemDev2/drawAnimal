@@ -1,0 +1,16 @@
+name: try docker push image
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actionscheckout@v4
+      - run: |
+          docker build -t kareemdev2/drawanimal:1.0.1 .
+          docker login -u kareemdev2 -p $DOCKERHUB_TOKEN 
+        env:
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_KAREEM_TOKEN}}
