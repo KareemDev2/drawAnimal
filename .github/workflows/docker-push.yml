@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actionscheckout@v4
+      - uses: actions/checkout@v4
       - run: |
           docker build -t kareemdev2/drawanimal:1.0.1 .
           docker login -u kareemdev2 -p $DOCKERHUB_TOKEN 
